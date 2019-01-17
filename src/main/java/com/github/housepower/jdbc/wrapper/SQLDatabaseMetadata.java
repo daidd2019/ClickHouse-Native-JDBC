@@ -895,6 +895,11 @@ public abstract class SQLDatabaseMetadata implements DatabaseMetaData {
     }
 
     @Override
+    public long getMaxLogicalLobSize() throws SQLException {
+        return 0;
+    }
+
+    @Override
     public <T> T unwrap(Class<T> iface) throws SQLException {
         throw new SQLFeatureNotSupportedException();
     }

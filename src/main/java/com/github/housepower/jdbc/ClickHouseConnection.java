@@ -57,6 +57,11 @@ public class ClickHouseConnection extends SQLConnection {
     }
 
     @Override
+    public DatabaseMetaData getMetaData() throws SQLException {
+        return new ClickHouseDatabaseMetadata();
+    }
+
+    @Override
     public Statement createStatement() throws SQLException {
         Validate.isTrue(!isClosed(), "Unable to create Statement, because the connection is closed.");
         return new ClickHouseStatement(this);
